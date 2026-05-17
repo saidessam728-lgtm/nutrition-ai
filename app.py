@@ -1,7 +1,6 @@
 import os
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddlewarefrom pydantic import BaseModel
-from tavily import TavilyClient
+from fastapi.middleware.cors import CORSMiddlewarefrom tavily import TavilyClient
 from groq import Groq
 
 app = FastAPI()
