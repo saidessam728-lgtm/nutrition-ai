@@ -1,11 +1,17 @@
 import os
 from fastapi import FastAPI
-from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddlewarefrom pydantic import BaseModel
 from tavily import TavilyClient
 from groq import Groq
 
 app = FastAPI()
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # Tavily Client
 tavily_client = TavilyClient(
     api_key=os.getenv("TAVILY_API_KEY")
